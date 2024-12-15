@@ -2,20 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  background-color: #fafafa;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.centered {
+  @apply flex items-center justify-center;
+}
+
+h1 {
+  @apply text-[40px] leading-[49.6px];
+}
+h2 {
+  @apply text-[32px] leading-[39.68px];
+}
+h3 {
+  @apply text-[44px] leading-[44px];
+}
+h4 {
+  @apply text-[32px] leading-[32px];
+}
+h5 {
+  @apply text-[22px] leading-[32.16];
+}
+h6 {
+  @apply text-[20px] leading-[27.2px];
+}
+p {
+  @apply font-normal;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
   }
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 500px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100%;
+  }
 }
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
