@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "../components/elements/Button";
 import HeroCarousel from "../components/HeroCarousel";
+import { NAV_LINKS } from "../utils/contants";
 
 import britishAmericanTobacco from "../../../public/assets/britishAmericanTobacco.webp";
 import enterpriseBank from "../../../public/assets/enterpriseBank.webp";
@@ -13,7 +15,7 @@ import service2 from "../../../public/assets/service2.webp";
 import service3 from "../../../public/assets/service3.webp";
 import feature1 from "../../../public/assets/feature1.webp";
 import feature2 from "../../../public/assets/feature2.webp";
-import mission from '../../../public/assets/mission.webp';
+import mission from "../../../public/assets/mission.webp";
 import nipco from "../../../public/assets/nipco.webp";
 import kopek from "../../../public/assets/kopek.webp";
 import story from "../../../public/assets/story.webp";
@@ -24,17 +26,17 @@ export default function Home() {
     {
       name: "Building & Civil Engineering Construction",
       id: "1",
-      img: service1,
+      img: service3,
     },
     {
       name: "Construction Management",
       id: "2",
-      img: service2,
+      img: service1,
     },
     {
       name: "Interior Design",
       id: "",
-      img: service3,
+      img: service2,
     },
   ];
 
@@ -107,31 +109,54 @@ export default function Home() {
 
   return (
     <div>
-      <section className="flex h-[840px] w-full relative">
-        <div className="w-[60%]">
+      <section className="flex flex-col lg:flex-row lg:h-[840px] w-full relative">
+        <div className="lg:w-[60%] overflow-hidden h-[579px] lg:h-full">
           <HeroCarousel />
         </div>
-        <div className=" bg-primary w-[40%] pl-20">
-          <div className="w-[338px] text-black mt-[600px]">
-            <h2 className="mt-5">
+        <div className=" bg-primary lg:w-[40%] px-6 sm:px-20 min-h-[273px] lg:h-full pt-6 lg:pt-0">
+          <div className="flex lg:hidden items-center gap-2 flex-wrap xs:flex-none">
+            {NAV_LINKS.map((link) => {
+              return (
+                <Link
+                  key={link.id}
+                  href={`#${link.link}`}
+                  className="text-black px-2 py-1 sm:px-4 sm:py-2 border border-black text-sm sm:text-base"
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="z-[1] relative lg:w-[338px] text-black lg:mt-[600px]">
+            <h2 className="mt-5 md:text-[32px] leading-[29.76px] md:leading-[39.68px] text-[24px] lg:text-auto">
               Project Intelligence and Quality Services Limited - Since 2011.
             </h2>
-            <Button size="md" className="border mt-10" variant="outline">
+            <Button
+              size="md"
+              as="link"
+              href="http://wa.link/i5recx"
+              target="_blank"
+              className="border mt-6 sm:mt-10 relative z-10"
+              variant="outline"
+            >
               CHAT WITH US
             </Button>
           </div>
         </div>
-        <div className="px-20 w-full absolute z-[2] translate-x-[-50%] left-[50%] flex justify-between items-end">
-          <div className="w-[575px] mt-[520px] text-white">
+        <div className="px-6 sm:px-20 w-full absolute bottom-[273px] py-10 lg:py-0 lg:bottom-auto z-[2] lg:translate-x-[-50%] lg:left-[50%] flex justify-between items-end">
+          <div className="w-[575px] lg:mt-[520px] text-white">
             <p className="text-xs px-3 py-[7px] backdrop-blur-md bg-black/10 w-fit">
               CONSTRUCTION X ENGINEERING
             </p>
-            <h1 className="mt-5">
+            <h1 className="mt-5 text-[34px] md:text-[40px] leading-[42.16px] md:leading-[49.6px]">
               Redefining The Projection of Construction in Nigeria, One Project
               at a Time
             </h1>
             <Button
               size="md"
+              as="link"
+              href="http://wa.link/i5recx"
+              target="_blank"
               className="border border-white text-white mt-8"
               variant="outline"
             >
@@ -140,9 +165,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex py-36">
+      <section className="flex py-20 sm:py-32 px-6 lg:px-0">
         <div className="text-left w-[650px] mx-auto">
-          <h2 className="text-[32px]">Taking Construction to New Heights.</h2>
+          <h2 className="text-[24px] leading-[29.76px] lg:text-[32px]">
+            Taking Construction to New Heights.
+          </h2>
           <p className="mt-4">
             Project Intelligence and Quality Services Limited is a leading
             Nigerian construction company committed to delivering exceptional
@@ -154,12 +181,17 @@ export default function Home() {
         </div>
       </section>
       <section className="">
-        <h2 className="pl-20">Our Services Include:</h2>
-        <div className="grid grid-cols-3 max-h-[465px] h-[465px] gap-2 px-2 mt-6">
+        <h2 className="pl-6 md:pl-20 text-[24px] leading-[29.76px] lg:text-[32px]">
+          Our Services Include:
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 md:max-h-[465px] md:h-[465px] gap-2 px-2 mt-6">
           {SERVICE.map((service) => {
             return (
-              <div key={service.id} className="relative p-7 h-full">
-                <h3 className="z-[2] text-[32px] absolute bottom-7 left-7 text-white  max-w-[403px] mt-auto">
+              <div
+                key={service.id}
+                className="relative p-7 h-[375px] md:h-full"
+              >
+                <h3 className="z-[2] text-[24px] leading-[29.76px] lg:text-[32px] absolute bottom-7 left-7 text-white  max-w-[403px] mt-auto">
                   {service.name}
                 </h3>
                 <Image
@@ -174,16 +206,18 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="py-36 container">
-        <div className="w-[965px] ml-auto">
-          <h2 className="text-[32px]">Our Unique Methods.</h2>
-          <div className="grid grid-cols-3 gap-10 mt-6">
+      <section className="sm:py-36 py-10 container">
+        <div className="lg:w-[965px] lg:ml-auto">
+          <h2 className="text-[24px] leading-[29.76px] lg:text-[32px]">
+            Our Unique Methods.
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-6">
             {METHODS.map((methods) => {
               return (
                 <div key={methods.title} className="flex justify-between">
                   <div className="">
                     <h3 className="text-[17px]">{methods.title}</h3>
-                    <p className="text-[15px]">{methods.description}</p>
+                    <p className="text-[15px] mt-2">{methods.description}</p>
                   </div>
                 </div>
               );
@@ -191,14 +225,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="">
-        <h2 className="pl-20">Featured Work</h2>
-        <div className="grid grid-cols-2 max-h-[465px] h-[465px] gap-2 px-2 mt-6">
+      <section className="" id="work">
+        <h2 className="pl-6 md:pl-20 text-[24px] leading-[29.76px] lg:text-[32px]">
+          Featured Work
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 max-h-[465px] h-[465px] gap-16 sm:gap-2 px-2 mt-6">
           {FEATURED_WORK.map((service) => {
             return (
               <div key={service.id}>
                 <div className="relative p-7 h-full">
-                  <h3 className="z-[2] text-[32px] absolute bottom-7 left-7 text-white  max-w-[427px] mt-auto">
+                  <h3 className="z-[2] text-[24px] leading-[29.76px] lg:text-[32px] absolute bottom-7 left-3 lg:left-7 lg:pr-0 text-white lg:max-w-[427px] mt-auto">
                     {service.name}
                   </h3>
                   <Image
@@ -209,7 +245,7 @@ export default function Home() {
                     sizes="w-[100%]"
                   />
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between flex-wrap">
                   {service.label.map((label) => {
                     return (
                       <div
@@ -231,8 +267,8 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="px-20 py-36">
-        <h2 className="text-[32px]">Our Unique Methods.</h2>
+      <section className="px-6 lg:px-20 py-36" id="expertise">
+        <h2 className="text-[32px]">Proud to work with</h2>
         {PARTNERS.map((partner) => {
           return (
             <div
@@ -253,14 +289,14 @@ export default function Home() {
           );
         })}
       </section>
-      <section className="px-20 flex gap-32">
+      <section className="px-6 lg:px-20 md:flex gap-10 xl:gap-32" id="about">
         <Image
           alt="story"
           src={story}
-          className="w-[599px] min-w-[599px] h-auto"
+          className="lg:w-[599px] lg:min-w-[599px] lg:max-h-[433.5px] h-auto object-cover"
         />
-        <div className="pr-20">
-          <h2 className="">The Project I-Q Story</h2>
+        <div className="xl:pr-20 mt-10 md:mt-0">
+          <h2 className="text-[24px] leading-[29.76px] lg:text-[32px]">The Project I-Q Story</h2>
           <div className="mt-6">
             <p>
               In the heart of Nigeria, a vision took shape. A vision to redefine
@@ -276,37 +312,43 @@ export default function Home() {
               structures, and delivered countless projects that have left a
               lasting impact.
             </p>
-            <Button variant="outline" size="md" className="mt-8">
+            <Button variant="outline" size="md" className="mt-8 w-full sm:w-auto">
               ABOUT US
             </Button>
           </div>
         </div>
       </section>
-      <section className="px-20 flex gap-32 py-36 items-center">
-        <div className="pl-20">
+      <section className="px-6 lg:px-20 flex flex-col-reverse md:flex-row gap-10 lg:gap-32 py-6 sm:py-36 items-center">
+        <div className="xl:pl-20">
           <div className="mt-6">
-            <p className="text-[24px] w-[410px]">
+            <p className="text-[24px] lg:w-[410px]">
               Our mission is to be a leading construction company in Nigeria,
               committed to providing exceptional building and civil engineering
               services.
             </p>
           </div>
         </div>
-        <div className="h-[428px] w-full relative">
+        <div className="h-[428px] w-full lg:min-w-[400px] relative lg:w-full">
           <Image alt="story" src={mission} fill className="object-cover" />
         </div>
       </section>
-      <section className="px-20 overflow-hidden pb-36 pt-12" id="contact">
-        <div className="grid grid-cols-2 h-[536px]">
-          <div className="w-full relative">
+      <section className="px-6 lg:px-20 overflow-hidden pb-6 sm:pb-36 pt-6 sm:pt-12" id="contact">
+        <div className="grid md:grid-cols-2 md:h-[536px]">
+          <div className="w-full relative h-[290px] md:h-full">
             <Image alt="story" src={chat} fill className="object-cover" />
           </div>
-          <div className="p-20 bg-primary text-black leading-[52.08px]">
-            <h2 className="text-[42px]">
+          <div className="p-6 md:p-20 bg-primary text-black leading-[52.08px]">
+            <h2 className="text-[32px] leading-[39.68px] lg:leading-normal lg:text-[42px]">
               Ready To Chat? <br />
               Start Your Journey.
             </h2>
-            <Button as="link" href="/" variant="outline" className="mt-8">
+            <Button
+              as="link"
+              href="http://wa.link/i5recx"
+              target="_blank"
+              variant="outline"
+              className="mt-8"
+            >
               CHAT WITH US
             </Button>
             <svg

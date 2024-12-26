@@ -29,6 +29,10 @@ const config: Config = {
         "red-state": "#E34149",
         "error-state": "#CD432F",
       },
+      screens: {
+        xs: "440px",
+        "2xs": "375px",
+      },
     },
   },
   // plugins: [require("@tailwindcss/line-clamp")],

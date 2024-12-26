@@ -55,7 +55,7 @@ const HeroCarousel = () => {
     >
       {CAROUSEL_DATA.map((data) => {
         return (
-          <SwiperSlide className="" key={data.id}>
+          <SwiperSlide className="!h-full" key={data.id}>
             <div className="relative h-full">
               <Image src={data.img} alt={data.title} fill className="object-cover" sizes="width:100%"/>
             </div>

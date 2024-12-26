@@ -53,27 +53,27 @@ export const Footer = () => {
     {
       id: "facebook",
       title: "Facebook",
-      link: "https://www.facebook.com/projectiqservices",
+      link: "https://www.facebook.com/story.php?story_fbid=2068373370111022&substory_index=0&id=1430664657215233&_rdr",
       icon: facebook,
     },
     {
       id: "linkedin",
       title: "Linkedin",
-      link: "https://www.linkedin.com/company/project-i-q-services-limited",
+      link: "https://ng.linkedin.com/in/rotimi-ojeleye-73888b20",
       icon: linkdin,
     },
   ];
 
   return (
     <footer className=" bg-black-3 ">
-      <div className="flex items-start justify-between px-20 py-14">
+      <div className="flex flex-col lg:flex-row gap-10 items-start justify-between px-6 lg:px-20 py-14">
         <div>
           <Image
             src={logoGrey}
             alt="project-iq-logo"
             style={{ width: "118.64px", height: "auto" }}
           />
-          <p className="text-[42px] w-[379px] leading-[52.08px] text-white-2 mt-6">
+          <p className="text-[42px] md:w-[379px] leading-[52.08px] text-white-2 mt-6">
             We would love to hear from you.
           </p>
           <p className="text-white-2 mt-8">
@@ -86,7 +86,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-start gap-20">
+        <div className="flex items-start gap-6 justify-between w-full lg:w-auto lg:justify-end sm:gap-20 text-sm md:text-base">
           <div className="">
             <h2 className="text-white-2 text-[24px] mb-6">Links</h2>
             {FOOTER_LINKS.map((link) => {
@@ -101,24 +101,25 @@ export const Footer = () => {
               );
             })}
           </div>
-          <div className="w-[229px]">
+          <div className="sm:w-[229px]">
             <h2 className="text-white-2 text-[24px] mb-6">Contact</h2>
             {CONTACTS.map((link) => {
               return (
                 <Link
                   key={link.id}
-                  href={`#${link.link}`}
+                  href={link.link}
+                  target="_blank"
                   className="text-white-2 mt-6 block"
                 >
                   <p className="text-white/50 text-[13px]">{link.title}</p>
-                  <p>{link.text}</p>
+                  <p className="">{link.text}</p>
                 </Link>
               );
             })}
           </div>
         </div>
       </div>
-      <div className="px-20 py-4 flex items-center justify-between border-t border-t-[#2A2727]">
+      <div className="px-6 sm:px-20 py-4 flex items-center justify-between border-t border-t-[#2A2727]">
         <p className="text-white-2/50 text-[13px]">
           Project I-Q Services Limited ™ © 2024. All rights reserved.
         </p>
@@ -128,6 +129,7 @@ export const Footer = () => {
               <Link
                 key={link.id}
                 href={link.link}
+                target="_blank"
                 className="text-white-2 border border-primary w-9 min-w-9 aspect-square centered"
               >
                 <Image
